@@ -1,5 +1,5 @@
 //version 2.0
-
+//For odd cases it's not exactly the same, but I think this is better. It's symmetrical.
 
 public class TheLookeyGlass {
 
