@@ -4,26 +4,34 @@
 public class TheLookeyGlass {
 
 	public static void main(String[] args) {
-		int totalWidth=13;
-		for(int i=-1*totalWidth; i<=totalWidth; i+=2) {
-			String a;
-			String b;
-			String c;
-			if(i%totalWidth==0||(i<0&&i+2>0)) {
-				a="|";
-				b="\"";
-				c="|";
-			}else {
-				b=":";
-				if(i<0) {
-					a="\\";
-					c="/";
-				}else {
-					a="/";
-					c="\\";
-				}
+		int totalWidth=-1;
+		if(totalWidth==0) {
+			for(int i=0;i<3;i++) {
+				drawObj(0, 0, "|", "\"", "|");
 			}
-			drawObj(Math.abs(i), totalWidth, a, b, c);
+		}else if(totalWidth<0) {
+			throw new IllegalArgumentException("Negative width");
+		}else {
+			for(int i=-1*totalWidth; i<=totalWidth; i+=2) {
+				String a;
+				String b;
+				String c;
+				if(i%totalWidth==0||(i<0&&i+2>0)) {
+					a="|";
+					b="\"";
+					c="|";
+				}else {
+					b=":";
+					if(i<0) {
+						a="\\";
+						c="/";
+					}else {
+						a="/";
+						c="\\";
+					}
+				}
+				drawObj(Math.abs(i), totalWidth, a, b, c);
+			}
 		}
 	}
 	
